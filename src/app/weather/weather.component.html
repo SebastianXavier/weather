@@ -1,0 +1,36 @@
+<div>
+    <h1>{{ title }}</h1>
+    <select [(ngModel)]="selectedOption" style="height: 35px; width: 100px">
+      <option *ngFor="let o of selectOptions">
+        {{ o.name }}
+      </option>
+    </select>
+    <input
+      type="date"
+      placeholder="yyyy-mm-dd"
+      [(ngModel)]="inputedDate"
+      style=" height: 35px; width: 200px"
+    />
+    <br />
+    <button
+      (click)="getDateVal()"
+      class="btn btn-secondary p-1"
+      style=" height: 35px; width: 300px"
+    >
+      Go to Date 》
+    </button>
+  </div>
+  <br />
+  
+  <div class="row">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [constructorType]="'stockChart'"
+      [options]="chartOptions"
+      [(update)]="updateFlag"
+    >
+    </highcharts-chart>
+  </div>
+  <br />
+  <app-tabular [weatherInfo]="weatherInfo"></app-tabular>
+  
